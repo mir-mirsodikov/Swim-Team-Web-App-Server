@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <nav-bar v-if="$route.name != 'Sign In'"></nav-bar>
     <router-view></router-view>
   </div>
 </template>
@@ -15,10 +15,13 @@ export default {
     NavBar 
   },
   methods: {
-    ...mapActions(['fetchAnnouncements'])
+    ...mapActions(['fetchAnnouncements', 'isAuthorized'])
   },
   created() {
     this.fetchAnnouncements();
+  },
+  updated() {
+    this.isAuthorized();
   }
 }
 </script>

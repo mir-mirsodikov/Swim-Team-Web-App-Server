@@ -1,11 +1,12 @@
 import express from 'express';
 import User from '@model/User';
+import { verify } from 'crypto';
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const router: express.Router = express.Router();
-const secretKey = 'secret key';
+const secretKey = 'secret-key';
 
 // Initialize Passport and restore authentication state, if any, from the session.
 router.use(passport.initialize());
@@ -48,22 +49,25 @@ passport.deserializeUser(function(user: any, done: (arg0: null, arg1: any) => vo
 router.post('/', passport.authenticate('local'), (req: express.Request, res: express.Response) => {
     const token = jwt.sign({ user: req.body.username }, secretKey, { expiresIn: '7d'});
     res.json({
-        token
+        token: token,
+        user: req.body.username
     });
 });
 
-// Authorize user by checking their JWT
-router.get('/user', (req, res) => {
+function verifyToken(req: express.Request, res: express.Response) {
     jwt.verify(req.headers['authorization'], secretKey, (err: any, auth: any) => {
         if (err) {
-            res.status(403).send(err);
+            res.send(false);
         }
         else {
-            res.json({
-                auth
-            })
+            res.send(true);
         }
     });
+}
+
+// Authorize user by checking their JWT
+router.get('/', (req, res) => {
+    verifyToken(req, res);
 });
 
 

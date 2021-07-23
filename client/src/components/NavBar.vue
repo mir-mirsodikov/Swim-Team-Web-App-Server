@@ -15,7 +15,7 @@
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li><button class="uk-button uk-button-primary uk-margin-right"><router-link to="/"> Sign In</router-link></button></li>
+                        <li><router-link to="/login"><button class="uk-button uk-button-primary uk-margin-right"> Sign In</button></router-link></li>
                     </ul>
                 </div>
             </div>
@@ -38,7 +38,7 @@ export default {
     background-color: #222;
 }
 
-.navbar li a, button a {
+.navbar li a, button {
   font-size: 1em;
   color: white;
   font-family: 'Raleway Light';
