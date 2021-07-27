@@ -11,11 +11,13 @@
                         <li><router-link to="/">Coaches</router-link></li>
                         <li><router-link to="/">Seniors</router-link></li>
                         <li><router-link to="/">Information</router-link></li>
+                        <li v-if="isAuthorized"><router-link to="/profile">Profile</router-link></li>
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li><router-link to="/login"><button class="uk-button uk-button-primary uk-margin-right"> Sign In</button></router-link></li>
+                        <li><router-link to="/login"><button class="uk-button uk-button-primary uk-margin-right" v-if="!isAuthorized">Sign In</button></router-link></li>
+                        <li><a><button class="uk-button uk-button-default uk-margin-right" v-if="isAuthorized" @click="signOutUser">Sign Out</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -25,11 +27,24 @@
 </template>
 
 <script>
-import PageHeader from './PageHeader.vue'
+import PageHeader from './PageHeader.vue';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'NavBar',
-    components: { PageHeader }
+    components: { PageHeader },
+    computed: {
+        isAuthorized() {
+            return this.$store.getters.isAuthenticated;
+        }
+    },
+    methods: {
+        ...mapActions(['signOut']),
+        async signOutUser() {
+            await this.signOut();
+            this.$router.push({path: '/'});
+        }
+    }
 }
 </script>
 

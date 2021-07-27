@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '@model/User';
-import { verify } from 'crypto';
+import { userData, tokenPayLoad } from '@model/Auth';
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -12,24 +12,27 @@ const secretKey = 'secret-key';
 router.use(passport.initialize());
 router.use(passport.session());
 
-type user = {
-    username: string,
-    password: string
-};
+var payLoad: tokenPayLoad;
 
 /**
  * Set up 'local' authentication using Passport.js
  * Reference MongoDB database and check if the user exists and then if the credentials are correct
  */
 passport.use(new LocalStrategy(
-    function(username: string, password: string, done: Function) {
-        User.findOne({ 'username': username }, function(err: Error, user: user) {   
+    function(username: string, password: string, done: any) {
+        User.findOne({ 'username': username }, function(err: Error, user: userData) {
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
             }
             if (user.password != password) {
                 return done(null, false, { message: 'Incorrect password.'});
+            }
+            payLoad = {
+              username: username,
+              nameFirst: user.nameFirst,
+              nameLast: user.nameLast,
+              permission: user.permission
             }
             return done(null, user);
         });
@@ -40,17 +43,17 @@ passport.use(new LocalStrategy(
 passport.serializeUser(function(user: any, done: (arg0: null, arg1: any) => void) {
     done(null, user);
 });
-  
+
 passport.deserializeUser(function(user: any, done: (arg0: null, arg1: any) => void) {
     done(null, user);
 });
 
 // Authenticate a user and generate a JWT
 router.post('/', passport.authenticate('local'), (req: express.Request, res: express.Response) => {
-    const token = jwt.sign({ user: req.body.username }, secretKey, { expiresIn: '7d'});
+    const token = jwt.sign(payLoad, secretKey, { expiresIn: '7d'});
     res.json({
         token: token,
-        user: req.body.username
+        ...payLoad
     });
 });
 

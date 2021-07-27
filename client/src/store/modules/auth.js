@@ -4,12 +4,17 @@ const url = 'http://localhost:3000/auth'
 const state = {
   token: String,
   authorized: false,
-  user: String
+  username: String,
+  nameFirst: String,
+  nameLast: String,
+  permission: String
 };
 
 const getters = {
   isAuthenticated: (state) => state.authorized,
-  getUser: (state) => state.user
+  getUser: (state) => state.username,
+  getFirstName: (state) => state.nameFirst,
+  getToken: (state) => state.token
 };
 
 const actions = {
@@ -27,17 +32,33 @@ const actions = {
       }
     }).then(data => response = data.data);
     commit('setAuthorized', response);
+  },
+
+  async signOut({ commit }) {
+    localStorage.removeItem('token');
+    commit('clearUserData');
   }
 };
 
 const mutations = {
   setUser(state, auth) {
     state.token = auth.token;
-    state.user = auth.user;
+    state.username = auth.username;
+    state.nameFirst = auth.nameFirst;
+    state.nameLast = auth.nameLast;
+    state.permission = auth.permission;
     localStorage.setItem('token', auth.token);
   },
   setAuthorized(state, token) {
     state.authorized = token;
+  },
+  clearUserData(state) {
+    state.token = "";
+    state.authorized = false;
+    state.username = "";
+    state.nameFirst = "";
+    state.nameLast = "";
+    state.permission = "";
   }
 };
 

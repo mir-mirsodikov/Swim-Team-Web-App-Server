@@ -28,6 +28,9 @@
         </fieldset>
       </form>
     </div>
+    <div class="uk-card-footer" v-if="error">
+      <p>{{ error }}</p>
+    </div>
   </div>
 </template>
 
@@ -41,6 +44,7 @@ export default {
     return {
       username: "",
       password: "",
+      error: ""
     };
   },
   methods: {
@@ -54,12 +58,13 @@ export default {
       try {
         await this.getAuthenticated(auth);
         await this.isAuthorized();
+        this.error = "";
         if (store.getters.isAuthenticated) {
           this.$router.push('Profile');
         }
       }
       catch (err) {
-        console.error(err);
+        this.error = "Incorrect username and/or password"
       }
     }
   }
