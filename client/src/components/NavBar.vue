@@ -7,7 +7,7 @@
                         <li><router-link to="/">Home</router-link></li>
                         <li><router-link to="/announcements">Announcements</router-link></li>
                         <li><router-link to="/meet-schedule">Meet Schedule</router-link></li>
-                        <li><router-link to="/">Meet Results</router-link></li>
+                        <li><router-link to="/meet-results">Meet Results</router-link></li>
                         <li><router-link to="/">Coaches</router-link></li>
                         <li><router-link to="/">Seniors</router-link></li>
                         <li><router-link to="/">Information</router-link></li>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <page-header></page-header>
+        <page-header v-if="$route.name == 'Home'"></page-header>
     </div>
 </template>
 

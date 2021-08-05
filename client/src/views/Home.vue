@@ -8,7 +8,7 @@
     </div>
     <div class="remove-padding">
       <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-        <h3 class="uk-card-title">Umcoming Meets</h3>
+        <h3 class="uk-card-title">Upcoming Meets</h3>
         <calendar-widget></calendar-widget>
       </div>
     </div>

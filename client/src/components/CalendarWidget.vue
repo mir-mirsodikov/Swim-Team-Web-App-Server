@@ -1,5 +1,5 @@
 <template>
-    <table class="uk-table">
+    <table class="uk-table uk-table-striped">
         <thead>
             <tr>
                 <th>Meet</th>
