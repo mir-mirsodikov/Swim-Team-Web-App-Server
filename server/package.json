@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./dist/app.js",
     "dev": "nodemon ./src/app.ts",
+    "test": "npx mocha -r ts-node/register './src/tests/**/*.spec.ts'",
     "build": "tsc -p ."
   },
   "author": "",
@@ -20,6 +21,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.21",
     "@types/express": "^4.17.13",
     "@types/mocha": "^8.2.3",
     "@types/node": "^16.3.3",
