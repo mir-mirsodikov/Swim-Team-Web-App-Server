@@ -1,10 +1,12 @@
-// import {
-//   MissingAttributeError,
-//   InvalidAttributeError,
-// } from '@domain/Errors';
+import {
+  MissingAttributeError,
+  InvalidAttributeError
+} from '@domain/Errors';
+
+export class MissingAttributesForAnnouncements extends MissingAttributeError {}
+export class InvalidAttributesForAnnouncements extends MissingAttributeError {}
 
 export interface IAnnouncement {
-  id?: string,
   subject: string,
   body: string,
   date: Date,
@@ -17,7 +19,6 @@ export class Announcement implements IAnnouncement {
     public readonly body: string,    
     public readonly date: Date,
     public readonly author: string,
-    public readonly id?: string,
   ) {}
 }
 
@@ -27,14 +28,12 @@ export class AnnouncementFactory {
     body: string,
     date: Date,
     author: string,
-    id?: string,
   ): Announcement {
     return new Announcement(
       subject,
       body,
       date,
       author,
-      id,
     );
   }
 }

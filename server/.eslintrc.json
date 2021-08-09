@@ -33,6 +33,14 @@
 			"error",
 			"always"
 		],
-    "@typescript-eslint/ban-ts-comment": "off"
+    "comma-dangle": [
+      "warn",
+      {
+        "objects": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-empty-interface": "off"
 	}
 }
