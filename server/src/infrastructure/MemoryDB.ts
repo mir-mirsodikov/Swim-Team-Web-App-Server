@@ -1,9 +1,7 @@
-export type MemoryDbTable<T> = Record<string, T>
+import { MongoSchemas } from '@db/interfaces';
 
 export abstract class MemoryDB<T> {
-  protected table: MemoryDbTable<T> = {};
-
-  constructor() {
+  constructor(private readonly dbSchemas: MongoSchemas) {
     this.setup();
   }
 
