@@ -9,6 +9,7 @@ import { MongoSchemas } from '@db/interfaces';
 import { MongoModels } from '@db/ModelProvider';
 
 import { connectDb, clearDatabase, closeDatabase } from '../mocks/mongo.mock';
+import { DateTime } from 'luxon';
 
 chai.use(chaiAsPromised);
 const expect = chai.expect;
@@ -20,7 +21,7 @@ describe('Test use case CreateNewAnnouncement', () => {
 
   const subject = 'Test subject';
   const body = 'Test body';
-  const date = new Date();
+  const date = DateTime.now().toFormat('yyyy-MM-dd');
   const author = 'Nelson Mandela';
 
   const dbSchemas: MongoSchemas = new MongoModels();

@@ -32,7 +32,22 @@ class AnnouncementGateway implements IAnnouncementGateway {
   }
 
   async getAllAnnouncements(): Promise<Announcement[]> {
-    throw new Error('Method not implemented.');
+    try {
+      const response = await this.announcementModel.find();
+
+      /* eslint-disable */
+      return response.map((announcement) =>
+        AnnouncementFactory.createAnnouncement(
+          announcement.subject,
+          announcement.body,
+          announcement.date,
+          announcement.author,
+        )
+      );
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
   }
 }
 

@@ -18,3 +18,19 @@ export interface ICreateAnnouncementUseCase {
 export interface ICreateAnnouncementResponder {
   (payload: ICreateAnnouncementResponse): void;
 }
+
+/* 
+List all announcements use case
+*/
+
+export interface IListAnnouncementsRequest {}
+
+export type IListAnnouncementsResponse = ICreateAnnouncementResponse[]
+
+export interface IListAnnouncementsUseCase {
+  listAnnouncement(): Promise<void>
+}
+
+export interface IListAnnouncementsResponder {
+  (payload: IListAnnouncementsResponse): void;
+}
