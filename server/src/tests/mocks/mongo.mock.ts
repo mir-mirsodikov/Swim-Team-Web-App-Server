@@ -4,19 +4,6 @@ import mongoose from 'mongoose';
 /* eslint-disable */
 var mongo: MongoMemoryServer;
 
-// export class MongoMock {  
-//   async connectDb(mongo: MongoMemoryServer): Promise<void> {
-//     mongo = await MongoMemoryServer.create();
-//     const uri = mongo.getUri();
-//     const mongooseOpts = {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//       poolSize: 10,
-//     };
-//     await mongoose.connect(uri, mongooseOpts);
-//   }
-// }
-
 export async function connectDb(): Promise<void> {
   mongo = await MongoMemoryServer.create();
   const uri = mongo.getUri();
