@@ -1,13 +1,9 @@
-<h1>Swim Team Web App</h1>
+<h1>High School Sports Team Web App Server</h1>
 
 # Overview
-Full-stack web application for the oversight and management of a swim team.
+Server side application for the management, communication, and progress of high school sports teams.
 
-The best way for a user to interact with a client was to build a web application.
-
-## Technologies
-
-### Server Side
+# Tech Stack
 - Node
 - Express
 - TypeScript
@@ -20,22 +16,16 @@ I used TypeScript because of its rigid structure and exceptional error handling.
 
 I had never worked with authentication and authorization in the past and this was the main reason that I worked on this project. After lots of research, I found that Passport Local strategy fit best for what I was trying to accomplish. With Passport, I used JSON Web Tokens for the authorization on the client side.
 
-### Client Side
-- Vue
-- Vue Router
-- Vuex
-- Axios
+# Test Driven Development
+This was the first of my experience with test drive development. I set up Mocha and Chai as my testing frameworks. Paired with some mock components, I was able to get the testings I wanted. 
 
-The client was built using Vue. I have had a lot of experience with Vue in the past, but this was the first time I worked with it using the CLI. With this, I also learned and implemented Vue Router and Vuex. Due to the fact that the website would be spread out over several pages, I had to implement a routing system. Vuex provided me with a great state management across my files.
+# Clean Architecture
+My very first exposure to project architecture was clean architecture. After lots of research and examples, I was able to structure my code to abide by clean architecture.
+
+A more detailed explanation of it can be found [here](architecture.md).
+
 
 # Installation
-
-## Server Side
-Navigate into the server folder.
-```
-cd server
-```
-
 Install all necessary dependencies: 
 ```
 npm install
@@ -54,26 +44,4 @@ npm run build
 For running the compiled code: 
 ```
 npm run start
-```
-
-## Client Side
-
-Project setup
-```
-npm install
-```
-
-Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-Compiles and minifies for production
-```
-npm run build
-```
-
-Lints and fixes files
-```
-npm run lint
 ```
