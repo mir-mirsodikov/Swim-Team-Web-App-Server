@@ -1,5 +1,6 @@
 import { Schema, Model, Document, model } from 'mongoose';
 import { IAnnouncement } from '@domain/announcements';
+import { DateTime } from 'luxon';
 
 const AnnouncementSchema = new Schema({
   subject: {
@@ -11,8 +12,8 @@ const AnnouncementSchema = new Schema({
     required: true,
   },
   date: {
-    type: Date,
-    default: new Date(),
+    type: String,
+    default: DateTime.now().toFormat('yyyy-MM-dd'),
   },
   author: {
     type: String,
