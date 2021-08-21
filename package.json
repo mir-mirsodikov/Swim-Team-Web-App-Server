@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/app.js",
-    "dev": "nodemon -r tsconfig-paths/register src/app.ts",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
     "test": "npx mocha -r ts-node/register -r tsconfig-paths/register './src/tests/**/*.spec.ts'",
     "build": "tsc --build tsconfig.json"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
     "fastest-validator": "^1.11.1",
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.0.2",
@@ -49,6 +50,8 @@
     "@routes": "./dist/routes",
     "@application": "./dist/application",
     "@controllers": "./dist/controllers",
-    "@gateways": "./dist/gateways"
+    "@gateways": "./dist/gateways",
+    "@db": "./dist/db",
+    "@infrastructure": "./dist/infrastructure"
   }
 }
