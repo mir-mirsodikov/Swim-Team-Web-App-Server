@@ -1,11 +1,8 @@
 import express from 'express';
-
+import routes from '@routes/index';
 const app: express.Application = express();
-/**
- * If this is being run from the compiles js files,
- * register module-alias
- */
-// @ts-ignore
-if (!process[Symbol.for('ts-node.register.instance')]) {
-  require('module-alias/register');
-}
+
+app.use(express.json());
+app.use(routes);
+
+export default app;
