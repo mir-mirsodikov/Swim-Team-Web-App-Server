@@ -18,9 +18,9 @@ describe('Team Model Testing', () => {
       const team = TeamFactory.createTeam(
         uuid,
         teamName,
+        abbrNames,
         coaches,
         regCode,
-        abbrNames,
       );
 
       expect(team.uuid).to.be.equal(uuid);

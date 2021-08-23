@@ -1,9 +1,9 @@
 export interface ITeam {
   uuid: string
   teamName: string
+  abbrNames: Array<string>
   coaches: Array<string>
   regCode: string
-  abbrNames: Array<string>
 }
 
 export class Team implements ITeam {
@@ -20,9 +20,9 @@ export class TeamFactory {
   static createTeam(
     uuid: string,
     teamName: string,
+    abbrNames: Array<string>,
     coaches: Array<string>,
     regCode: string,
-    abbrNames: Array<string>,
   ): Team {
     return new Team(
       uuid,
