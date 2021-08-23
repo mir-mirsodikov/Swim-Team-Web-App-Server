@@ -2,7 +2,7 @@ import { ICreateAnnouncementRequest, ICreateAnnouncementResponder, ICreateAnnoun
 import { MongoModels } from '@db/ModelProvider';
 import asyncHandler from 'express-async-handler';
 import {Request, Response} from '@controllers/Express';
-import { CreateNewAnnouncementUseCase } from '@application/announcements';
+import { CreateNewAnnouncementUseCase } from '@application/Announcement';
 import AnnouncementGateway from '@infrastructure/AnnouncementGateway';
 
 const mongoModel = new MongoModels();

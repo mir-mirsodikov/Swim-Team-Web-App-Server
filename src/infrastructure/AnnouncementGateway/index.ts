@@ -1,5 +1,5 @@
 import { IAnnouncementGateway } from '@domain/interfaces';
-import { Announcement, AnnouncementFactory } from '@domain/announcements';
+import { Announcement, AnnouncementFactory } from '@domain/AnnouncementModel';
 import { MongoSchemas } from '@db/interfaces';
 import { IAnnouncementModel } from '@db/AnnouncementSchema';
 

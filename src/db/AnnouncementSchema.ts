@@ -1,5 +1,5 @@
 import { Schema, Model, Document, model } from 'mongoose';
-import { IAnnouncement } from '@domain/announcements';
+import { IAnnouncement } from '@domain/AnnouncementModel';
 import { DateTime } from 'luxon';
 
 const AnnouncementSchema = new Schema({

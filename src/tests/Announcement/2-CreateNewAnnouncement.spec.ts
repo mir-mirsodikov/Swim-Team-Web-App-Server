@@ -2,7 +2,7 @@ import 'mocha';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
-import { CreateNewAnnouncementUseCase } from '@application/announcements';
+import { CreateNewAnnouncementUseCase } from '@application/Announcement';
 import { ICreateAnnouncementRequest, ICreateAnnouncementResponder, ICreateAnnouncementResponse } from '@application/interfaces/announcement';
 import AnnouncementGateway from 'infrastructure/AnnouncementGateway';
 import { MongoSchemas } from '@db/interfaces';

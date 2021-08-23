@@ -1,5 +1,5 @@
 import { ICreateAnnouncementRequest } from '@application/interfaces/announcement';
-import { AnnouncementFactory, IAnnouncement } from '@domain/announcements';
+import { AnnouncementFactory, IAnnouncement } from '@domain/AnnouncementModel';
 import { IAnnouncementGateway } from '@domain/interfaces';
 import { DateTime } from 'luxon';
 

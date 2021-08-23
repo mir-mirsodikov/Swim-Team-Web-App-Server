@@ -1,4 +1,4 @@
-import { AnnouncementFactory } from '@domain/announcements';
+import { AnnouncementFactory } from '@domain/AnnouncementModel';
 import { IAnnouncementGateway } from '@domain/interfaces';
 import {
   ICreateAnnouncementRequest,

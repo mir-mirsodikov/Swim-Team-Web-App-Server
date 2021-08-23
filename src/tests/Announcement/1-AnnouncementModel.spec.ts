@@ -4,7 +4,7 @@ import faker from 'faker';
 
 const expect = chai.expect;
 
-import { AnnouncementFactory } from '@domain/announcements';
+import { AnnouncementFactory } from '@domain/AnnouncementModel';
 import { DateTime } from 'luxon';
 
 /**
