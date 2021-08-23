@@ -12,7 +12,7 @@ import {
  * @param gateway         Announcement gateway
  * @param useCaseResponse Function to send back the response
  */
-export class CreateNewAnnouncementUseCase implements ICreateAnnouncementUseCase {
+export class CreateAnnouncementUseCase implements ICreateAnnouncementUseCase {
   constructor(
     private gateway: IAnnouncementGateway,
     private useCaseResponse: ICreateAnnouncementResponder,
