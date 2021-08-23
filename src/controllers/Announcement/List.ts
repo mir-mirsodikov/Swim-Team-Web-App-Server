@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import {Request, Response} from '@controllers/Express';
 import { IListAnnouncementsResponder, IListAnnouncementsResponse } from '@application/interfaces/announcement';
-import { ListAnnouncementsUseCase } from '@application/announcements/ListAnnouncementsUseCase';
+import { ListAnnouncementsUseCase } from '@application/Announcement/ListAnnouncementsUseCase';
 import { MongoModels } from '@db/ModelProvider';
 import AnnouncementGateway from '@infrastructure/AnnouncementGateway';
 

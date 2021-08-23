@@ -4,7 +4,7 @@ import faker from 'faker';
 
 const expect = chai.expect;
 
-import { TeamFactory } from '@domain/team';
+import { TeamFactory } from '@domain/TeamModel';
 
 describe('Team Model Testing', () => {
   const teamName = faker.company.companyName();

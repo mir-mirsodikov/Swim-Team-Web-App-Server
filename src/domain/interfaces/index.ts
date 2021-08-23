@@ -1,4 +1,4 @@
-import { Announcement } from '@domain/announcements';
+import { Announcement } from '@domain/AnnouncementModel';
 
 export interface IAnnouncementGateway { 
   createAnnouncement(

@@ -6,7 +6,7 @@ import {
   IListAnnouncementsResponse,
   IListAnnouncementsUseCase
 } from '@application/interfaces/announcement';
-import { ListAnnouncementsUseCase } from '@application/announcements/ListAnnouncementsUseCase';
+import { ListAnnouncementsUseCase } from '@application/Announcement/ListAnnouncementsUseCase';
 import { MockAnnouncementGateway } from 'tests/mocks/AnnouncementGateway.mock';
 
 chai.use(chaiAsPromised);

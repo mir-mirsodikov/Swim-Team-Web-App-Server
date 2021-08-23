@@ -1,6 +1,6 @@
 // Announcement use cases
 
-import { IAnnouncement } from '@domain/announcements';
+import { IAnnouncement } from '@domain/AnnouncementModel';
 
 /*
 Create new announcement use case
