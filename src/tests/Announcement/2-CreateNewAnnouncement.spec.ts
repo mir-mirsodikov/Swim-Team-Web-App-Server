@@ -2,7 +2,7 @@ import 'mocha';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
-import { CreateNewAnnouncementUseCase } from '@application/Announcement';
+import { CreateAnnouncementUseCase } from '@application/Announcement';
 import { ICreateAnnouncementRequest, ICreateAnnouncementResponder, ICreateAnnouncementResponse } from '@application/interfaces/announcement';
 import AnnouncementGateway from 'infrastructure/AnnouncementGateway';
 import { MongoSchemas } from '@db/interfaces';
@@ -43,8 +43,8 @@ describe('Test use case CreateNewAnnouncement', () => {
           expect(response.author).to.be.equal(author, 'Author mismatch');
         };
       
-      const useCase: CreateNewAnnouncementUseCase =
-        new CreateNewAnnouncementUseCase(announcementGateway, responder);
+      const useCase: CreateAnnouncementUseCase =
+        new CreateAnnouncementUseCase(announcementGateway, responder);
       
       return expect(useCase.createAnnouncement({...requestPayload}))
         .to.be.eventually.fulfilled;
