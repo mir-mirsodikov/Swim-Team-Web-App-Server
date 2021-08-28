@@ -29,8 +29,8 @@ export class CreateTeamUseCase implements ICreateTeamUseCase {
     const team = TeamFactory.createTeam(
       uuid,
       teamName,
-      abbrNames,
       coaches,
+      abbrNames,
       regCode,
     );
 
@@ -39,8 +39,8 @@ export class CreateTeamUseCase implements ICreateTeamUseCase {
     const response: ICreateTeamResponse = {
       uuid: newModel.uuid,
       teamName: newModel.teamName,
-      abbrNames: newModel.abbrNames,
       coaches: newModel.coaches,
+      abbrNames: newModel.abbrNames,
       regCode: newModel.regCode,
     };
 

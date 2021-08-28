@@ -18,8 +18,8 @@ describe('Team Model Testing', () => {
       const team = TeamFactory.createTeam(
         uuid,
         teamName,
-        abbrNames,
         coaches,
+        abbrNames,
         regCode,
       );
 
