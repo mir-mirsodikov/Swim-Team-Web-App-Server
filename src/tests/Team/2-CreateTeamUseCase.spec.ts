@@ -1,14 +1,13 @@
 import 'mocha';
 import chai from 'chai';
 import faker from 'faker';
-import { MongoSchemas } from '@db/interfaces';
-import { MongoModels } from '@db/ModelProvider';
 import { 
   ICreateTeamRequest,
   ICreateTeamResponder,
   ICreateTeamResponse
 } from '@application/interfaces/team';
 import { CreateTeamUseCase } from '@application/Team/CreateTeamUseCase';
+import { MockTeamGateway } from 'tests/mocks/TeamGateway.mock';
 
 const expect = chai.expect;
 
@@ -19,14 +18,12 @@ describe('Test use case CreateNewTeam', () => {
   const regCode = faker.random.alphaNumeric(6);
   const abbrNames = [teamName.substring(0, 3)];
 
-  const dbSchemas: MongoSchemas = new MongoModels();
-  // @ts-ignore
-  const teamGateway = new TeamGateway(dbSchemas);
+  const teamGateway = new MockTeamGateway();
   const requestPayload: ICreateTeamRequest = {
     uuid,
     teamName,
-    abbrNames,
     coaches,
+    abbrNames,
     regCode,
   };
 
