@@ -7,6 +7,7 @@
     "start": "node ./dist/index.js",
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
     "test": "npx mocha -r ts-node/register -r tsconfig-paths/register './src/tests/**/*.spec.ts'",
+    "test:separate": "npx mocha -r ts-node/register -r tsconfig-paths/register --watch --watch-files src --watch-files './src/tests/**/*.spec.ts'",
     "build": "tsc --build tsconfig.json"
   },
   "author": "",
