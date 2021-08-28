@@ -7,6 +7,8 @@ export class MockTeamGateway implements ITeamGateway {
     return TeamFactory.createTeam(
       request.uuid,
       request.teamName,
+      request.division,
+      request.classification,
       request.coaches,
       request.abbrNames,
       request.regCode,
