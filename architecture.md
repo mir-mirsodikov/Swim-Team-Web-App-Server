@@ -182,8 +182,5 @@ export class CreateVehicleUseCase implements ICreateVehicleUseCase {
 
 # Gateways
 
-**WHAT IS THE POINT OF A GATEWAY?! IT SEEMS TO DO THE SAME THING AS THE FACTORY? AND THERE IS A FACTORY INSIDE THE GATEWAY SO I DON'T KNOW ANYMORE**  
-**IT LOOKS AS IF THE GATEWAY INTERACTS WITH THE DATABASE BUT I AM NOW CONFUSED BECAUSE THAT DOES NOT SEEM TO FOLLOW CLEAN CODE**
-
 The gateways interfaces created in the domain are now implemented in this folder. 
 
