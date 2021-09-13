@@ -9,6 +9,7 @@
   - [Use Cases](#use-cases)
 - [Gateways](#gateways)
 
+![](CleanArchitecture.jpeg)
 # Domain
 The models/interfaces for each business rule.
 
